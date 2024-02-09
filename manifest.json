@@ -1,6 +1,6 @@
 {
-    "name": "som_official",
-    "short_name": "som_official",
+    "name": "som_devprofile",
+    "short_name": "som_devprofile",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
