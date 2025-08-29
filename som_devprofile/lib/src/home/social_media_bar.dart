@@ -25,27 +25,56 @@ class SocialMediaBar extends StatelessWidget {
         padding: EdgeInsets.only(top: height * 0.01),
         child: FittedBox(
           fit: BoxFit.cover,
-          child: Row(
-            children: List.generate(data.length, (int i) {
-              return IconButton(
-                  iconSize: 20.0,
-                  hoverColor: Colors.transparent,
-                  icon: (data[i][1] != '' &&
-                          currentSupportedSocialMedia.contains(data[i][1]))
-                      ? SocialMediaButton(
-                          image: 'assets/home/constant/${data[i][1]}.png',
-                          link: data[i][0],
-                          height: height)
-                      : SocialMediaButton(
-                          image: 'assets/home/constant/link.png',
-                          link: data[i][0],
-                          height: height,
-                        ),
-                  onPressed: () {
-                    htmlOpenLink(data[i][0]);
-                  });
-            }),
-          ),
+          child: Column(children: [
+            Row(
+              children: List.generate(data.length, (int i) {
+                return IconButton(
+                    iconSize: 20.0,
+                    hoverColor: Colors.transparent,
+                    icon: (data[i][1] != '' &&
+                            currentSupportedSocialMedia.contains(data[i][1]))
+                        ? SocialMediaButton(
+                            image: 'assets/home/constant/${data[i][1]}.png',
+                            link: data[i][0],
+                            height: height)
+                        : SocialMediaButton(
+                            image: 'assets/home/constant/link.png',
+                            link: data[i][0],
+                            height: height,
+                          ),
+                    onPressed: () {
+                      htmlOpenLink(data[i][0]);
+                    });
+              }),
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+                // make the button larger horizontally
+
+                style: ElevatedButton.styleFrom(
+                  // Set the width and height
+                  backgroundColor: Colors.orangeAccent,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                    side: const BorderSide(color: Colors.yellow),
+                  ),
+                  //add animation to button
+                  elevation: 5,
+                  shadowColor: Colors.black54,
+                  animationDuration: const Duration(milliseconds: 300),
+                ),
+                onPressed: () =>
+                    {htmlOpenLink('https://awes0m.github.io/fortpolio/')},
+                child: const Text(
+                  '                       Visit- My Works Gallery!                       ',
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                      fontFeatures: [FontFeature.enable('smcp')],
+                      fontStyle: FontStyle.italic),
+                )),
+          ]),
         ));
   }
 }
