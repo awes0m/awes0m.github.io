@@ -1,5 +1,6 @@
+# Som - A Dev portfolio
 
-# som_devprofile
+![App Logo](https://raw.githubusercontent.com/awes0m/awes0m.github.io/refs/heads/main/som_devprofile/assets/icon/som_app_icon.png)
 
 A personal Flutter portfolio app that showcases projects, experience, education, and contact information.
 
@@ -17,7 +18,6 @@ This repository contains a working Flutter portfolio application used to present
 - A compatible platform SDK/tooling for your target (Android Studio or Android SDK for Android, Xcode for iOS/macOS, etc.).
 
 ## Installation (Windows PowerShell)
-
 
 1. Clone the repo and open the project:
 
@@ -105,8 +105,8 @@ flutter test
 Contributions are welcome. Typical workflow:
 
 1. Fork the repo.
-1. Create a feature branch: `git checkout -b feat/your-change`.
-1. Commit changes and open a pull request.
+2. Create a feature branch: `git checkout -b feat/your-change`.
+3. Commit changes and open a pull request.
 
 Please keep UI/content changes small and provide screenshots for visual updates.
 

@@ -1,8 +1,6 @@
 # Som - A Dev portfolio
 
-```
-![App Logo](https://github.com/awes0m/awes0m.github.io/blob/main/som_devprofile/assets/icon/som_app_icon.png)
-```
+![App Logo](https://raw.githubusercontent.com/awes0m/awes0m.github.io/refs/heads/main/som_devprofile/assets/icon/som_app_icon.png)
 
 A personal Flutter portfolio app that showcases projects, experience, education, and contact information.
 
