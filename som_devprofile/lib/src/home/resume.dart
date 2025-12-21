@@ -203,7 +203,7 @@ class _FunkyOutlinePainter extends CustomPainter {
         sweep * 0.8,
         false,
         paintArc
-          ..color = paintArc.color.withValues(alpha:paintArc.color.opacity * 0.8),
+          ..color = paintArc.color.withValues(alpha:paintArc.color.a * 0.8),
       );
     }
   }

@@ -58,8 +58,9 @@
         "proficiency": [
             "Vulnerability Management--90",
             "Web Application Scanning--80",
-            "Next Gen Firewalls--70",
-            "CCPM/SCPM/GRC--70",
+            "Next Gen Firewalls--85",
+            "CCPM/SCPM/GRC--80",
+            "Cloud Security--80",
             "Python--70",
             "Kali/Linux--50",
             "JavaScript--50",
@@ -117,64 +118,67 @@
     },
     "projects": {
         "1": {
-            "name": "Drum-ru 😎",
-            "tech_stack_used": "Pygame(using Python)",
-            "description": "Windows(EXE) DOWNLOAD available! \nFull Drumpad with customizable beats and Recording , Web/andoid app comming soon,  ",
-            "general_or_github_link": "https://github.com/awes0m/pybeats"
+            "name": "Awes0m Cybersec Home (v3.3)",
+            "tech_stack_used": "HTML, CS, JS",
+            "description": "A customizable, self-contained browser homepage tailored for cybersecurity professional  ",
+            "general_or_github_link": "https://awes0m.github.io/CybersecHome/",
+            "readme_link": "https://raw.githubusercontent.com/awes0m/CybersecHome/refs/heads/main/README.md"
         },
         "2": {
-            "name": "Pyiano",
-            "tech_stack_used": "Flutter",
-            "description": "Windows(EXE) DOWNLOAD available! \nFull Piano programable to be played ccuratly with Computer keyboard ,",
-            "general_or_github_link": "https://github.com/awes0m/pyiano"
+            "name": "Cybersec Tools",
+            "tech_stack_used": "HTML, CSS, JS",
+            "description": "explore the rides built for JSON wranglers and incident responders. ,",
+            "general_or_github_link": "https://github.com/awes0m/cybersec_tools",
+            "readme_link": "https://raw.githubusercontent.com/awes0m/cybersec_tools/refs/heads/main/README.md"
         },
         "3": {
             "name": "nUMERO-uNO",
             "tech_stack_used": "Flutter ",
-            "description": "a numerology calculating app , Telling your future based on your birth date and name , with daily predictions and compatibility checkers",
-            "general_or_github_link": "https://github.com/awes0m/Godly-Networking-Scripts"
+            "description": "a numerology calculating app , \nTelling your future based on your birth date and name , \nwith daily predictions and compatibility checkers",
+            "general_or_github_link": "https://awes0m.github.io/numero_uno/",
+            "readme_link": "https://raw.githubusercontent.com/awes0m/numero_uno/refs/heads/main/README.md"
         },
         "4": {
-            "name": "fotoshop",
-            "tech_stack_used": "Flutter",
-            "description": "Android(APK) DOWNLOAD available!, \nA Photo and video editing application complety offline and free with advanced features and text editing",
-            "general_or_github_link": "https://github.com/awes0m/fotoshop"
+            "name": "MarkDown Viewer",
+            "tech_stack_used": "HTML, CS, JS",
+            "description": "A beautiful, modern markdown viewer web app \nwith theming, navigation, and custom header buttons. ",
+            "general_or_github_link": "https://awes0m.github.io/mdviewer/",
+            "readme_link": "https://raw.githubusercontent.com/awes0m/mdviewer/refs/heads/main/readme.md"
         },
         "5": {
-            "name": "Browser Based Games",
-            "tech_stack_used": "HTML, CS, JS",
-            "description": "CLICK to PLAY! \n (hosted on github) \nMultiple browser based offline games",
-            "general_or_github_link": "https://awes0m.github.io/jsTgames/"
+            "name": "Som Home",
+            "tech_stack_used": "Flutter",
+            "description": "A modern, feature-rich Flutter web application that functions as your personal browser homepage \n with Google Search, bookmarks management, task tracking,\n customizable backgrounds, and embedded mini-games.",
+            "general_or_github_link": "https://github.com/awes0m/som_home",
+            "readme_link": "https://raw.githubusercontent.com/awes0m/som_home/refs/heads/main/README.md"
         },
         "6": {
-            "name": "flappy_som",
+            "name": "The Prisoner's Dilema",
             "tech_stack_used": "Flutter ",
             "description": "Recreation of the classic game with flutter flame engine.\nThe game is a side-scroller where the player controls a bird, \nattempting to fly between columns of green pipes without hitting them..",
-            "general_or_github_link": "https://github.com/awes0m/glutter-fames/tree/main/flappy_som"
+            "general_or_github_link": "https://awes0m.github.io/tpdgame/",
+            "readme_link": "https://raw.githubusercontent.com/awes0m/tpdgame/refs/heads/main/README.md"
         },
         "7": {
             "name": "Sliding Puzzle- Neumorphism",
             "tech_stack_used": "Flutter",
             "description": "CLICK to PLAY! \n\nA sliding puzzle, sliding block puzzle, or sliding tile puzzle is a combination puzzle that challenges a player to slide (frequently flat) pieces along certain routes (usually on a board) to establish a certain end-configuration.",
             "general_or_github_link": "https://awes0m.github.io/jsTgames/slider_game_flutter/"
+
         },
         "8":{
-            "name": "flu_ttt_er_tictactoe",
-            "tech_stack_used": "Flutter, Node(JavaScript)",
-            "description": "Tic Tac Toe game. With Realtime Multiplier using Node Js and Socket IO library",
-            "general_or_github_link": "https://github.com/awes0m/flu_ttt_er_tictactoe"
+            "name": "ppiano ",
+            "tech_stack_used": "Flutter, Python",
+            "description": "Programmable piano built with Flutter, Windows variant built with Python",
+            "general_or_github_link": "https://awes0m.github.io/ppiano/",
+            "readme_link": "https://raw.githubusercontent.com/awes0m/ppiano/refs/heads/main/README.md"
         },
         "9":{
-            "name": "apisod-crm",
-            "tech_stack_used": "Python(Django),HTML,CSS",
-            "description": "A django based customer relationship portal",
-            "general_or_github_link": "https://github.com/awes0m/apisod-crm"
-        },
-        "10": {
-            "name": "Godly-Networking-Scripts",
-            "tech_stack_used": "Python, PowerShell",
-            "description": "As the name suggest all networking basic automations, Handy and easy to use for a professional , uses basic libraries no additinal requirements",
-            "general_or_github_link": "https://github.com/awes0m/Godly-Networking-Scripts"
+            "name": "Current Portfolio",
+            "tech_stack_used": "Flutter",
+            "description": "Current Portfolio that you are viewing",
+            "general_or_github_link": "https://awes0m.github.io",
+            "readme_link": "https://raw.githubusercontent.com/awes0m/awes0m.github.io/refs/heads/main/README.md"
         }
     },
     "achievements": {

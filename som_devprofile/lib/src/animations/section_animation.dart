@@ -101,8 +101,8 @@ class _AnimatedSectionState extends State<AnimatedSection>
         );
       case AnimationType.typewriter:
         return TypewriterAnimation(
-          child: widget.child,
           controller: _controller,
+          child: widget.child,
         );
     }
   }
