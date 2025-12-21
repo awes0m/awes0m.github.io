@@ -29,6 +29,7 @@ class Projects extends StatelessWidget {
                     techStack: data[i][1],
                     desc: data[i][2],
                     link: data[i][3],
+                    readmeLink: data[i].length > 4 ? data[i][4] : null,
                     isMobile: true,
                   ),
                 );
@@ -53,6 +54,9 @@ class Projects extends StatelessWidget {
                         techStack: data[index + i * 3][1],
                         desc: data[index + i * 3][2],
                         link: data[index + i * 3][3],
+                        readmeLink: data[index + i * 3].length > 4
+                            ? data[index + i * 3][4]
+                            : null,
                         isMobile: false,
                       );
                     }),

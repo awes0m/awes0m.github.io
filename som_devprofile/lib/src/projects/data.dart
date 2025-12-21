@@ -23,6 +23,20 @@ List<List<String>> projects() {
   return totalProjects;
 }
 
+Future<String> fetchReadme(String readmeUrl) async {
+  try {
+    final response = await http.get(Uri.parse(readmeUrl));
+
+    if (response.statusCode == 200) {
+      return response.body;
+    } else {
+      return 'Failed to load README. Status code: ${response.statusCode}';
+    }
+  } catch (e) {
+    return 'Error loading README: $e';
+  }
+}
+
 Future<List<String>> starsAndForks(String repo) async {
   final String loadDotenv = await rootBundle.loadString('dotenv');
   final List<String> words = repo.split('/');

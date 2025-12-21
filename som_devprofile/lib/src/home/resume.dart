@@ -87,7 +87,7 @@ class _ResumeState extends State<Resume> with SingleTickerProviderStateMixin {
                       const SizedBox(width: 8),
                       Icon(
                         Icons.download_outlined,
-                        color: color.withOpacity(0.8),
+                        color: color.withValues(alpha:0.8),
                         size: 20,
                       ),
                     ],
@@ -125,12 +125,12 @@ class _FunkyOutlinePainter extends CustomPainter {
     final baseOutline = Paint()
       ..style = PaintingStyle.fill
       ..strokeWidth = 1.5
-      ..color = color.withOpacity(0.25);
+      ..color = color.withValues(alpha:0.25);
     canvas.drawRRect(rrect, baseOutline);
 
     // Dashed border that animates around the rrect
     _drawAnimatedDashedBorder(canvas, rrect,
-        color: color.withOpacity(0.85), progress: progress);
+        color: color.withValues(alpha:0.85), progress: progress);
 
     // Rotating arcs (concentric) around the content
     _drawRotatingArcs(canvas, rect, color: color, progress: progress);
@@ -186,7 +186,7 @@ class _FunkyOutlinePainter extends CustomPainter {
         ..style = PaintingStyle.stroke
         ..strokeWidth = 2 + i.toDouble()
         ..strokeCap = StrokeCap.round
-        ..color = color.withOpacity(0.65 - i * 0.15);
+        ..color = color.withValues(alpha:0.65 - i * 0.15);
 
       canvas.drawArc(
         Rect.fromCircle(center: center, radius: radius),
@@ -203,7 +203,7 @@ class _FunkyOutlinePainter extends CustomPainter {
         sweep * 0.8,
         false,
         paintArc
-          ..color = paintArc.color.withOpacity(paintArc.color.opacity * 0.8),
+          ..color = paintArc.color.withValues(alpha:paintArc.color.opacity * 0.8),
       );
     }
   }
@@ -223,14 +223,14 @@ class _FunkyOutlinePainter extends CustomPainter {
           Offset(math.cos(angle), math.sin(angle)) * radii[i] + center;
 
       // Soft glow effect by drawing circles with decreasing opacity
-      final glowPaint = Paint()..color = baseColor.withOpacity(0.18);
+      final glowPaint = Paint()..color = baseColor.withValues(alpha:0.18);
       canvas.drawCircle(offset, sizes[i] * 2.2, glowPaint);
       canvas.drawCircle(offset, sizes[i] * 1.5,
-          glowPaint..color = baseColor.withOpacity(0.12));
+          glowPaint..color = baseColor.withValues(alpha:0.12));
 
       final dotPaint = Paint()
         ..style = PaintingStyle.fill
-        ..color = baseColor.withOpacity(0.95);
+        ..color = baseColor.withValues(alpha:0.95);
       canvas.drawCircle(offset, sizes[i], dotPaint);
     }
   }

@@ -36,6 +36,7 @@ class JSONService extends ChangeNotifier {
   }
 
   @override
+  // ignore: unnecessary_overrides
   void dispose() {
     super.dispose();
   }
