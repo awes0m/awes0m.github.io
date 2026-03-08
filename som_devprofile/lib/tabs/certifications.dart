@@ -20,7 +20,7 @@ class Certifications extends StatelessWidget {
         padding: EdgeInsets.only(bottom: height * 0.1),
         child: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
-          if (constraints.maxWidth < 1000) {
+          if (constraints.maxWidth < 700) {
             return Column(
               children: List.generate(data.length, (int i) {
                 return Container(
@@ -41,7 +41,7 @@ class Certifications extends StatelessWidget {
               children: List.generate(
                 data.length % 3 == 0 ? data.length ~/ 3 : data.length ~/ 3 + 1,
                 (int i) => Padding(
-                  padding: EdgeInsets.only(bottom: width * 0.03),
+                  padding: EdgeInsets.only(bottom: constraints.maxWidth * 0.03),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: List.generate(
@@ -49,12 +49,18 @@ class Certifications extends StatelessWidget {
                             ? 3
                             : data.length - storage - 1, (int index) {
                       storage = index + i * 3;
-                      return AchievementsCard(
-                        desc: data[index + i * 3][0],
-                        link: data[index + i * 3][1],
-                        isMobile: false,
-                        showImageDialog: true,
-                        imagePath: 'assets/achievements/constant/achievement.png',
+                      return Flexible(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 6),
+                          child: AchievementsCard(
+                            desc: data[index + i * 3][0],
+                            link: data[index + i * 3][1],
+                            isMobile: false,
+                            showImageDialog: true,
+                            imagePath:
+                                'assets/achievements/constant/achievement.png',
+                          ),
+                        ),
                       );
                     }),
                   ),

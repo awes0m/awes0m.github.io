@@ -20,7 +20,7 @@ class Education extends StatelessWidget {
         padding: EdgeInsets.only(bottom: height * 0.1),
         child: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
-          if (constraints.maxWidth < 1000) {
+          if (constraints.maxWidth < 700) {
             return Column(
               children: List.generate(
                 data.length,
@@ -43,7 +43,7 @@ class Education extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  width: width * 0.8,
+                  width: constraints.maxWidth * 0.92,
                   child: Column(
                     children: List.generate(
                       data.length,

@@ -15,16 +15,26 @@ class WhatIdo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
-    final double width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(children: <Widget>[
-        TitleBar(height: height, width: width, title: 'WHAT I DO'),
+        TitleBar(
+          // Use a fixed dummy width since TitleBar only uses it for relative sizing
+          height: height,
+          width: MediaQuery.of(context).size.width,
+          title: 'WHAT I DO',
+        ),
         Padding(
-          padding: EdgeInsets.only(bottom: height * 0.1),
+          padding: EdgeInsets.only(bottom: height * 0.05),
           child: LayoutBuilder(
               builder: (BuildContext context, BoxConstraints constraints) {
-            if (constraints.maxWidth < 1000) {
+            // Use available width (content card width) not screen width
+            final double availableWidth = constraints.maxWidth;
+            // Desktop layout when content area is wider than 700px
+            final bool isDesktop = availableWidth >= 700;
+
+            if (!isDesktop) {
+              // ── MOBILE / NARROW ──────────────────────────────────
               int storage = -1;
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,20 +52,25 @@ class WhatIdo extends StatelessWidget {
                       left: 15.0,
                       right: 15.0,
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    // Stack the checklist image above the progress bars
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset(
-                          currentTheme.currentTheme == ThemeMode.dark
-                              ? 'assets/what_i_do/constant/checklist.png'
-                              : 'assets/what_i_do/constant/checklist-light.png',
-                          scale: 2,
+                        Center(
+                          child: Image.asset(
+                            currentTheme.currentTheme == ThemeMode.dark
+                                ? 'assets/what_i_do/constant/checklist.png'
+                                : 'assets/what_i_do/constant/checklist-light.png',
+                            scale: 2,
+                          ),
                         ),
+                        const SizedBox(height: 16),
                         Column(
                           children: List.generate(
                             data[0].length,
                             (int index) => Progress(
-                              width: width / 1.55,
+                              // Use available width minus padding
+                              width: availableWidth - 30,
                               widthSecondContainer:
                                   double.parse(data[0][index].split('--')[1]),
                               title: data[0][index].split('--')[0],
@@ -111,15 +126,16 @@ class WhatIdo extends StatelessWidget {
                 ],
               );
             } else {
+              // ── DESKTOP / WIDE ────────────────────────────────────
               int storage = -1;
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(70, 10, 70, 20),
+                    padding: const EdgeInsets.fromLTRB(40, 10, 40, 20),
                     child: CustomText(
                         text: '⚡ I have a good proficiency in:',
-                        fontSize: 35,
+                        fontSize: 28,
                         color: Theme.of(context).colorScheme.primary),
                   ),
                   Padding(
@@ -127,16 +143,19 @@ class WhatIdo extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Column(
-                          children: List.generate(
-                            data[0].length,
-                            (int index) => Progress(
-                              width: width / 2,
-                              widthSecondContainer:
-                                  double.parse(data[0][index].split('--')[1]),
-                              title: data[0][index].split('--')[0],
-                              sizeProficiencyName: 22,
-                              sizePercentage: 15,
+                        Expanded(
+                          child: Column(
+                            children: List.generate(
+                              data[0].length,
+                              (int index) => Progress(
+                                // Use half available width for progress bars
+                                width: availableWidth * 0.55,
+                                widthSecondContainer:
+                                    double.parse(data[0][index].split('--')[1]),
+                                title: data[0][index].split('--')[0],
+                                sizeProficiencyName: 18,
+                                sizePercentage: 13,
+                              ),
                             ),
                           ),
                         ),
@@ -144,17 +163,19 @@ class WhatIdo extends StatelessWidget {
                           currentTheme.currentTheme == ThemeMode.dark
                               ? 'assets/what_i_do/constant/checklist.png'
                               : 'assets/what_i_do/constant/checklist-light.png',
+                          width: availableWidth * 0.28,
+                          fit: BoxFit.contain,
                         ),
                       ],
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(70, 30, 70, 20),
+                    padding: const EdgeInsets.fromLTRB(40, 30, 40, 20),
                     child: CustomText(
                         text: data[1].isNotEmpty
                             ? '⚡ Some languages & tools I use:'
                             : '',
-                        fontSize: 35,
+                        fontSize: 28,
                         color: Theme.of(context).colorScheme.primary),
                   ),
                   Padding(
@@ -179,7 +200,7 @@ class WhatIdo extends StatelessWidget {
                               storage = index + i * 8;
                               return Container(
                                 constraints: const BoxConstraints.expand(
-                                    width: 80, height: 80),
+                                    width: 72, height: 72),
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
                                         image: AssetImage(

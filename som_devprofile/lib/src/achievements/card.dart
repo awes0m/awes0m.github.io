@@ -62,7 +62,8 @@ class _AchievementsCardState extends State<AchievementsCard> {
                             fit: BoxFit.contain,
                             errorBuilder: (context, error, stackTrace) {
                               return Container(
-                                padding: const EdgeInsets.all(DesignTokens.spacingL),
+                                padding:
+                                    const EdgeInsets.all(DesignTokens.spacingL),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
@@ -71,7 +72,8 @@ class _AchievementsCardState extends State<AchievementsCard> {
                                       size: 64,
                                       color: Colors.grey,
                                     ),
-                                    const SizedBox(height: DesignTokens.spacingM),
+                                    const SizedBox(
+                                        height: DesignTokens.spacingM),
                                     const Text(
                                       'Certificate image not available',
                                       style: TextStyle(
@@ -80,7 +82,8 @@ class _AchievementsCardState extends State<AchievementsCard> {
                                       ),
                                       textAlign: TextAlign.center,
                                     ),
-                                    const SizedBox(height: DesignTokens.spacingM),
+                                    const SizedBox(
+                                        height: DesignTokens.spacingM),
                                     ElevatedButton(
                                       onPressed: () =>
                                           htmlOpenLink(widget.link),
@@ -171,7 +174,6 @@ class _AchievementsCardState extends State<AchievementsCard> {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
-    final double width = MediaQuery.of(context).size.width;
 
     return AnimatedContainer(
       decoration: BoxDecoration(
@@ -198,7 +200,7 @@ class _AchievementsCardState extends State<AchievementsCard> {
           child: Container(
             alignment: Alignment.center,
             padding: const EdgeInsets.all(DesignTokens.spacingL),
-            width: !widget.isMobile ? width * 0.28 : width,
+            width: widget.isMobile ? double.infinity : null,
             decoration: BoxDecoration(
               gradient: currentTheme.currentTheme == ThemeMode.dark
                   ? DesignTokens.darkCardGradient(isHover: isHover)

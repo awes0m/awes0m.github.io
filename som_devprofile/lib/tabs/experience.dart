@@ -42,7 +42,7 @@ class Experience extends StatelessWidget {
               children: List.generate(
                 data.length % 3 == 0 ? data.length ~/ 3 : data.length ~/ 3 + 1,
                 (int i) => Padding(
-                  padding: EdgeInsets.only(bottom: width * 0.03),
+                  padding: EdgeInsets.only(bottom: constraints.maxWidth * 0.03),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: List.generate(
