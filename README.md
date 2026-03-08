@@ -1,131 +1,137 @@
-# Som - A Dev portfolio
+# Som — Dev Portfolio
 
 ![App Logo](https://raw.githubusercontent.com/awes0m/awes0m.github.io/refs/heads/main/som_devprofile/assets/icon/som_app_icon.png)
 
-A personal Flutter portfolio app that showcases projects, experience, education, and contact information.
+A responsive Flutter portfolio app for **Som Subhra Pandit** — Senior Cloud Security Analyst, Cybersecurity Professional, and Flutter/Node.js Developer.
 
-This repository contains a working Flutter portfolio application used to present a developer profile across mobile, web, and desktop targets.
-
-## Quick overview
-
-- Flutter app built with standard project structure in `lib/`.
-- Static assets (images, fonts, JSON) live under `assets/`.
-- Platform folders: `android/`, `ios/`, `web/`, `windows/`, `macos/`, `linux/` are included for multi-platform builds.
-
-## Requirements
-
-- Flutter SDK (stable channel). Tested with Flutter 3.x+ (use `flutter --version` to check).
-- A compatible platform SDK/tooling for your target (Android Studio or Android SDK for Android, Xcode for iOS/macOS, etc.).
-
-## Installation (Windows PowerShell)
-
-1. Clone the repo and open the project:
-
-```powershell
-git clone <repo-url> som_devprofile
-cd 'd:\Vscode Projects\Flutter\git_repos\fortpolio\som_devprofile'
-```
-
-1. Get packages:
-
-```powershell
-flutter pub get
-```
-
-1. Run the app on a connected device or emulator:
-
-```powershell
-flutter run
-```
-
-To run on a specific platform:
-
-- Android: `flutter run -d <device-id>`
-- Web (Chrome): `flutter run -d chrome`
-- Windows (desktop): `flutter run -d windows`
-
-## Build / Release
-
-Create a release build for a platform:
-
-- Android (APK):
-
-```powershell
-flutter build apk --release
-```
-
-- Web:
-
-```powershell
-flutter build web --release
-```
-
-- Windows:
-
-```powershell
-flutter build windows --release
-```
-
-Refer to the official Flutter docs for platform-specific signing and publishing steps.
-
-## Project structure
-
-- `lib/` — application source code (entry: `main.dart`, app scaffold in `app.dart`).
-- `assets/` — images, fonts, JSON (e.g. `portfolio.json`).
-- `android/`, `ios/`, `web/`, `windows/`, `macos/`, `linux/` — platform projects.
-- `test/` — unit/widget tests.
-
-Key files:
-
-- `lib/main.dart` — app entry point.
-- `lib/app.dart` — top-level app widget and routing.
-- `assets/portfolio.json` — content used by the app.
-
-## Development notes
-
-- When adding images or fonts, update `pubspec.yaml` to include the new assets and run `flutter pub get`.
-- Keep `portfolio.json` in sync with displayed content.
-- Use Flutter DevTools and `flutter analyze` to catch issues early.
-
-## Tests
-
-Run unit/widget tests with:
-
-```powershell
-flutter test
-```
-
-## Troubleshooting
-
-- If you see missing asset errors, ensure `pubspec.yaml` lists the asset paths and re-run `flutter pub get`.
-- If a platform build fails, run the build command with `-v` to see verbose logs.
-
-## Contributing
-
-Contributions are welcome. Typical workflow:
-
-1. Fork the repo.
-2. Create a feature branch: `git checkout -b feat/your-change`.
-3. Commit changes and open a pull request.
-
-Please keep UI/content changes small and provide screenshots for visual updates.
-
-## License & credits
-
-This project includes third-party assets and fonts — check `assets/` and `pubspec.yaml` for attributions. Add your preferred license file (`LICENSE`) at the repo root.
+Live at 👉 **[awes0m.github.io](https://awes0m.github.io)**
 
 ---
 
-If you'd like, I can also:
+## Layout
 
-- Add a short screenshot section with inline images from `assets/`.
-- Add CI instructions (e.g., GitHub Actions) for building and testing on push.
+The app uses a **sidebar + content card** single-page design:
 
-Requirements coverage:
+- **Left Sidebar** — Profile photo, animated designation, contact info (email / location), social links, Resume download, and theme toggle
+- **Right Content Card** — Tab navigation bar in the header, with animated content switching between:
+  - **About** · **What I Do** · **Education** · **Experience** · **Projects** · **Certifications** · **Contact**
+- **Mobile** — Stacked layout: collapsible sidebar header on top, content card in the middle, scrollable tab bar at the bottom
 
-- Create a clear README describing how to run and build — Done
-- Document project structure and key files — Done
-- Provide platform-specific run/build commands (PowerShell) — Done
-- Note that I could not run Flutter commands here to validate builds remotely — Deferred (requires local Flutter environment)
+All content is loaded from `assets/portfolio.json` — edit that file to update your profile without touching any Dart code.
 
-If you want these changes to include screenshots or badges, tell me which images to use and I will update the file.
+---
+
+## Stack
+
+| | |
+|---|---|
+| Framework | Flutter (Dart) |
+| Target | Web (primary), Android, Windows |
+| Fonts | Google Fonts — Nova Mono |
+| Theming | Dark / Light mode toggle |
+| Content | `assets/portfolio.json` |
+
+---
+
+## Requirements
+
+- Flutter SDK **stable channel** (3.x+)
+- For web: Chrome or any Chromium-based browser
+- Run `flutter --version` to verify your setup
+
+---
+
+## Run locally
+
+```powershell
+# Clone
+git clone https://github.com/awes0m/awes0m.github.io.git
+cd awes0m.github.io\som_devprofile
+
+# Install dependencies
+flutter pub get
+
+# Dev server (hot reload enabled)
+flutter run -d web-server --web-port 8765
+# then open http://localhost:8765 in your browser
+
+# Or launch directly in Chrome
+flutter run -d chrome
+```
+
+---
+
+## Build for production
+
+```powershell
+# Web release build → output in build/web/
+flutter build web --release
+
+# Android APK
+flutter build apk --release
+
+# Windows desktop
+flutter build windows --release
+```
+
+---
+
+## Customise content
+
+Edit **`assets/portfolio.json`** — no Dart code changes needed:
+
+| Key | What it controls |
+|---|---|
+| `name_and_link` | Your name and GitHub URL |
+| `designation` | Rotating job title chips in sidebar |
+| `resume_download_link` | URL for the Resume button |
+| `social_media` | Social / contact icon links |
+| `contact_me` | Location, availability |
+| `about` | Bio text shown in the About tab |
+| `what_i_do` | Skills proficiency bars + tool logos |
+| `education` | Education cards |
+| `experience` | Experience cards |
+| `projects` | Project cards (with optional README link) |
+| `achievements` | Certifications cards |
+
+---
+
+## Project structure
+
+```
+lib/
+├── main.dart                  # Entry point + theme provider
+├── app.dart                   # PortfolioShell (sidebar + content layout)
+├── src/
+│   ├── sidebar/
+│   │   └── sidebar_card.dart  # Left sidebar widget
+│   ├── content/
+│   │   ├── content_card.dart  # Right content card + AnimatedSwitcher
+│   │   └── about_tab.dart     # About tab content
+│   ├── navigation/
+│   │   └── tab_nav_bar.dart   # Unified desktop/mobile tab nav
+│   └── ...                    # Per-tab widgets (education, experience, etc.)
+├── tabs/                      # Full-page tab widgets
+└── theme/                     # Dark/light theme config
+assets/
+├── portfolio.json             # All profile content
+├── contact_me/                # Profile photo
+├── home/constant/             # Social media icons
+└── what_i_do/                 # Tool logos
+```
+
+---
+
+## Development tips
+
+- Hot restart (`R` in terminal) after editing Dart files
+- `portfolio.json` changes take effect on next app load (no hot reload needed for assets)
+- Run `flutter analyze` before committing — no warnings expected
+- Use `flutter build web --release` to validate the production bundle
+
+---
+
+## License
+
+MIT — see `LICENSE` at the repo root.
+Assets and fonts used are credited in their respective directories and `pubspec.yaml`.
