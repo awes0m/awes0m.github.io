@@ -187,7 +187,7 @@ class _SidebarCardState extends State<SidebarCard> {
                   duration: const Duration(milliseconds: 250),
                   child: Icon(
                     Icons.arrow_drop_down,
-                    color: theme.colorScheme.onBackground,
+                    color: theme.colorScheme.primary,
                     fill: 1,
                     size: 18,
                   ),

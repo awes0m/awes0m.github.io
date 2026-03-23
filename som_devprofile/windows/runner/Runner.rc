@@ -89,11 +89,11 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "awe.som" "\0"
+            VALUE "CompanyName", "awes0m.github.io" "\0"
             VALUE "FileDescription", "som_devprofile" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "som_devprofile" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 awe.som. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2026 awes0m.github.io. All rights reserved." "\0"
             VALUE "OriginalFilename", "som_devprofile.exe" "\0"
             VALUE "ProductName", "som_devprofile" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"

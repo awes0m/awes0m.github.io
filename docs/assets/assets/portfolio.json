@@ -7,6 +7,7 @@
     "Security Researcher/ Analyst.",
     "Flutter/Node JS Developer."
   ],
+  "current_location": "Delhi,India",
   "resume_download_link": "https://drive.google.com/uc?export=download&id=1PTY-cepza96Y1GCA0NLHe5b1Lbzj7yJO",
   "social_media": {
     "1": ["https://github.com/awes0m", "github"],
@@ -58,7 +59,7 @@
     "2": {
       "institute": "KIIT Deemed University",
       "location": "Bhubaneswar",
-      "years": "2015 - 2025",
+      "years": "2015 - 2019",
       "description": "Bachelor of Technology(Mech)",
       "grades": "7.8 GPA",
       "logo": "kiit_logo.png"
@@ -88,10 +89,10 @@
       "image_name": "wipro.jpg"
     },
     "3": {
-      "name": "Open Source",
-      "role": "Contributor",
+      "name": "Open Source Community",
+      "role": "Active Contributor",
       "period": "December, 2017 - Present",
-      "description": "Completed and contributed to open source , designing and graphics.",
+      "description": "Completed projects and contributed to open source with apps and Cybersec utility tools",
       "image_name": "opensource.png"
     }
   },
@@ -134,7 +135,7 @@
     "6": {
       "name": "The Prisoner's Dilema",
       "tech_stack_used": "Flutter ",
-      "description": "Recreation of the classic game with flutter flame engine.\nThe game is a side-scroller where the player controls a bird, \nattempting to fly between columns of green pipes without hitting them..",
+      "description": "Recreation of the classic Prisoner's Dilemma game theory concept. The game features multiple AI strategies, local multiplayer, animated visuals, and educational content about game theory. It provides both entertainment and educational value by demonstrating various strategies in the iterated Prisoner's Dilemma.\n CLICK TO PLAY!",
       "general_or_github_link": "https://awes0m.github.io/tpdgame/",
       "readme_link": "https://raw.githubusercontent.com/awes0m/tpdgame/refs/heads/main/README.md"
     },
