@@ -5,6 +5,7 @@ class _DataCache {
   static String? _about;
   static String? _resume;
   static String? _name;
+  static String? _location;
   static List<String>? _designation;
   static List<List<String>>? _socialMedia;
 
@@ -29,6 +30,11 @@ String resume() {
 String name() {
   return _DataCache._name ??=
       JSONService.response['name_and_link']?[0]?.toString() ?? '';
+}
+
+String location() {
+  return _DataCache._location ??=
+      JSONService.response['current_location']?.toString() ?? '';
 }
 
 List<String> designation() {

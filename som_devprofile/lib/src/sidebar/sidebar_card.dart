@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../home/data.dart';
-import '../home/resume.dart';
+
 import '../html_open_link.dart';
 import '../../theme/theme_button.dart';
 
@@ -113,11 +113,8 @@ class _SidebarCardState extends State<SidebarCard> {
           // Social media icons
           _buildSocialIcons(),
           const SizedBox(height: 14),
-          // Resume button — FittedBox scales it to sidebar width
-          const FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Resume(width: 0),
-          ),
+          // Resume button — sized for the 270px desktop sidebar
+          _buildResumeButton(isMobile: false),
           const SizedBox(height: 16),
           // Theme toggle
           Row(
@@ -183,17 +180,22 @@ class _SidebarCardState extends State<SidebarCard> {
               // Theme toggle
               const ThemeButton(),
               // Expand contacts toggle
-              GestureDetector(
-                onTap: () => setState(() => _showContacts = !_showContacts),
-                child: AnimatedRotation(
+              IconButton(
+                onPressed: () => setState(() => _showContacts = !_showContacts),
+                icon: AnimatedRotation(
                   turns: _showContacts ? 0.5 : 0,
                   duration: const Duration(milliseconds: 250),
                   child: Icon(
-                    Icons.expand_more_rounded,
-                    color: theme.colorScheme.primary,
-                    size: 26,
+                    Icons.arrow_drop_down,
+                    color: theme.colorScheme.onBackground,
+                    fill: 1,
+                    size: 18,
                   ),
                 ),
+                padding: const EdgeInsets.all(4),
+                constraints: const BoxConstraints(),
+                splashRadius: 18,
+                tooltip: _showContacts ? 'Hide details' : 'Show details',
               ),
             ],
           ),
@@ -211,10 +213,8 @@ class _SidebarCardState extends State<SidebarCard> {
                 const SizedBox(height: 8),
                 _buildSocialIcons(),
                 const SizedBox(height: 8),
-                const FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Resume(width: 0),
-                ),
+                // Resume button — sized for full-width mobile
+                _buildResumeButton(isMobile: true),
               ],
             ),
           ),
@@ -228,6 +228,68 @@ class _SidebarCardState extends State<SidebarCard> {
   }
 
   // ──────────────────────────────── SHARED ────────────────────────────────
+
+  /// Compact, properly-sized resume button that adapts to desktop vs mobile.
+  /// Desktop sidebar is 270px wide → small font/icon/padding.
+  /// Mobile expands full width → slightly larger, more breathing room.
+  Widget _buildResumeButton({required bool isMobile}) {
+    final resumeUrl = resume();
+    if (resumeUrl.isEmpty) return const SizedBox.shrink();
+
+    final double fontSize = isMobile ? 15 : 13;
+    final double iconSize = isMobile ? 18 : 16;
+    final EdgeInsets innerPad = isMobile
+        ? const EdgeInsets.symmetric(horizontal: 14, vertical: 10)
+        : const EdgeInsets.symmetric(horizontal: 10, vertical: 8);
+
+    return Builder(builder: (context) {
+      final color = Theme.of(context).colorScheme.primary;
+      return SizedBox(
+        width: double.infinity,
+        child: Material(
+          color: Colors.transparent,
+          borderRadius: BorderRadius.circular(12),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(12),
+            onTap: () => htmlOpenLink(resumeUrl),
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              padding: innerPad,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: color.withValues(alpha: 0.1),
+                border: Border.all(
+                  color: color.withValues(alpha: 0.4),
+                  width: 1.5,
+                ),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Icon(Icons.description_outlined,
+                      color: color, size: iconSize),
+                  const SizedBox(width: 8),
+                  Text(
+                    'Download Resume',
+                    style: TextStyle(
+                      fontSize: fontSize,
+                      fontWeight: FontWeight.w700,
+                      color: color,
+                      letterSpacing: 0.5,
+                    ),
+                  ),
+                  const SizedBox(width: 6),
+                  Icon(Icons.download_outlined,
+                      color: color.withValues(alpha: 0.8), size: iconSize - 2),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    });
+  }
 
   Widget _buildDesignationChip(ThemeData theme) {
     return AnimatedSwitcher(
@@ -275,12 +337,12 @@ class _SidebarCardState extends State<SidebarCard> {
       {
         'icon': Icons.email_outlined,
         'label': 'EMAIL',
-        'value': _getContact('email'),
+        'value': _getContact('email').split(':')[1],
       },
       {
         'icon': Icons.location_on_outlined,
         'label': 'LOCATION',
-        'value': _getContact('location'),
+        'value': location(),
       },
     ];
 
